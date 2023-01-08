@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="alert alert-danger" role="alert" *ngIf="!isVerifyOtp && signUpForm.valid">
+        Mobile verification is Mandatory
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="isSignUpSuccess">
+        Resister Successfully ; Plz Proceed with Login
+    </div>
+    <div class="row">
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div class="mb-3">
+                <label for="username" class="form-label">User Name</label>
+                <input type="text" class="form-control" id="username" formControlName="userName">
+
+            </div>
+
+            <label for="mobileno" class="form-label">Mobile Number</label>
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" aria-describedby="basic-addon2" formControlName="MobileNo">
+                <span class="input-group-text bg-body" id="mobileno" *ngIf="!isVerifyOtp"> <a class="p-1 noDecoration"
+                        (click)="getOtp()">Get OTP</a></span>
+                <span class="input-group-text bg-body" *ngIf="isVerifyOtp"><i
+                        class="bi bi-check-circle text-primary"></i></span>
+            </div>
+
+            <div *ngIf="isGetOtp">
+                <label for="otp" class="form-label">OTP</label>
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" aria-describedby="basic-addon2" #otp>
+                    <span class="input-group-text bg-body" id="otp"> <a class="p-1 noDecoration"
+                            (click)="varifyOtp(otp.value)">Verify OTP</a></span>
+                </div>
+                <div>Otp is valid for {{otpTimer}}</div>
+
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary"
+                    [disabled]=" !(signUpForm.valid && isVerifyOtp && !isSignUpSuccess)">SignUp</button>
+            </div>
+        </form>
+    </div>
+</div>

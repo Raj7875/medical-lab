@@ -1,0 +1,60 @@
+<div class="row py-5 mt-1 bg-primary text-light  text-center w-100">
+    <div class="col">
+        <h3 class="fw-400">Get Huge Savings on Medicines</h3>
+        <div class="d-flex justify-content-center mt-2 bd-hilight">
+            <div class="p-2 "><i class="bi bi-check-circle-fill me-2"></i>100 % Genuine Medicines</div>
+            <div class="p-2 "><i class="bi bi-check-circle-fill me-2"></i>Trusted Pharmacies</div>
+            <div class="p-2 "><i class="bi bi-check-circle-fill me-2"></i>Delivery to your doorstep</div>
+            <div class="p-2 "><i class="bi bi-check-circle-fill me-2"></i>Store Pick up</div>
+        </div>
+    </div>
+</div>
+
+<div class="row w-75 m-auto text-center shadow rounded-4 searchBox">
+    <div class="input-group flex-nowrap py-3">
+        <!-- <span class="input-group-text " id="addon-wrapping" > Pune &nbsp; 411041 &nbsp; &nbsp; <span data-bs-toggle="modal" data-bs-target="#pincodeModal"><i class="bi bi-chevron-down text-primary cursor" ></i></span></span> -->
+        <span class="input-group-text bg-body " id="addon-wrapping" *ngIf="ispincodeAvailable"  > {{pincodeDetails.pincodeCity}} &nbsp; {{pincodeDetails.pincode}} &nbsp; &nbsp;  <span data-bs-toggle="modal" data-bs-target="#pincodeModal"><i class="bi bi-chevron-down text-primary cursor" ></i></span></span>
+
+        <span class="input-group-text bg-body " *ngIf="! ispincodeAvailable">Select location &nbsp;&nbsp;<span data-bs-toggle="modal" data-bs-target="#pincodeModal"><i class="bi bi-chevron-down text-primary cursor" ></i></span></span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+        <span class="input-group-text" id="addon-wrapping"><i class="bi bi-search me-2"></i>Search</span>
+
+      </div>
+
+</div>
+<div class="container py-3 mt-2">
+    <div class="row">
+        <img src="	https://www.medibuddy.in/assets/banners/medicine-page.webp" alt="">
+    </div>
+
+</div>
+
+
+
+<!-- Pincode Modal -->
+<div class="modal fade" id="pincodeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Set Your Location</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
+        </div>
+        <div class="modal-body">
+            <div class="input-group">
+                <input type="text" class="form-control" name="pincode" id="id1" minlength="6" maxlength="6" [(ngModel)]="pincode" (ngModelChange)=" getPackageDetailsByPincode()" #pincodeDetail="ngModel">
+                <span class="input-group-text bg-body" *ngIf="ispincodeAvailable"><i class="bi bi-check-circle-fill text-success"></i></span>
+                <div id="validationServer03Feedback" class="invalid-feedback d-block" *ngIf="! ispincodeAvailable">
+                   we do not provide service to this pincode
+                  </div>
+              </div>
+        </div>
+        <div class="d-grid gap-2 mx-4 my-2">
+            <button class="btn btn-primary" type="button" [disabled]="">Submit</button>
+           
+          </div>
+      </div>
+    </div>
+  </div>
+
+<!-- top Deals -->
+<app-top-deals></app-top-deals>
