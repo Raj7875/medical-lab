@@ -14,12 +14,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { TopDealsComponent } from './components/top-deals/top-deals.component';
-
-
-
+import { LoginModule } from "./login/login.module";
 
 
 
@@ -32,13 +30,9 @@ import { TopDealsComponent } from './components/top-deals/top-deals.component';
         PageNotFoundComponent,
         MedicineHomeComponent,
         TopDealsComponent,
-       
-        
-        
-       
+        // LoginComponent,
+        // SignupComponent
     ],
-
-    
     providers: [],
     bootstrap: [AppComponent],
     imports: [
@@ -48,8 +42,9 @@ import { TopDealsComponent } from './components/top-deals/top-deals.component';
         BrowserAnimationsModule,
         CarouselModule,
         FormsModule,
-        HttpClientModule
-        
+        HttpClientModule,
+        LoginModule,
+        ReactiveFormsModule
     ]
 })
 export class AppModule { }

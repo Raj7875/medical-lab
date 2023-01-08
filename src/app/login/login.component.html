@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="alert alert-danger" role="alert" *ngIf="isNewUser">
+    User Doesn't exist.Plz check your credentials or resister first
+  </div>
+    <div class="row">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="mb-3">
+              <label for="mobileno" class="form-label">Mobile Number</label>
+              <input type="number" class="form-control" id="mobileno" formControlName="mobileNo">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+            </div>
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary " type="submit">Login</button>
+             
+            </div>
+          </form>
+    </div>
+</div>

@@ -11,7 +11,7 @@ export class TopDealsComponent implements OnInit {
   topDeals:any[]=[];
   
 
-  constructor(private http:HttpService) { }
+  constructor(private http:HttpService ) { }
 
   ngOnInit(): void {
     this.getTopDetails()
@@ -25,6 +25,7 @@ export class TopDealsComponent implements OnInit {
     }
     })
   }
+ 
 
   customOptions: OwlOptions = {
     loop: true,
