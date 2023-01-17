@@ -3,10 +3,11 @@
     <a href="" class="navbar-brand ">Medlab</a>
   </div>
   <div class="col-md-6 text-end ">
-    <a  class="navbar-brand">About Us</a>
-    <a  class="navbar-brand ms-4 " data-bs-toggle="modal" data-bs-target="#loginModal" #loginBtn *ngIf="!isLoginSuccess">Login
+    <a  class="navbar-brand ms-3 cursor" (click)="redirectToCart()"><i class="bi bi-cart2 me-2 fs-5"></i> <span class="cartCount rounded-circle">{{ cardCount | async}}</span> Cart</a>
+    <a  class="navbar-brand ms-3">About Us</a>
+    <a  class="navbar-brand ms-4 cursor" data-bs-toggle="modal" data-bs-target="#loginModal" #loginBtn *ngIf="!isLoginSuccess" >Login </a>
     <a  class="navbar-brand ms-4 " data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>
-    </a>
+    
   </div>
 </div>
 
