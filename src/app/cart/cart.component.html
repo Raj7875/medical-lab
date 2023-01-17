@@ -1,0 +1,56 @@
+<div class="container mt-4">
+    <div class="row">
+        <!-- <div class="col-md-1">
+
+        </div> -->
+        <div class="col-md-7 py-4 border rounded-4">
+            <strong class="ms-2">
+                Cart Items
+            </strong><span class="ms-2">{{orderObj.products.length}} item</span>
+            <div class="card mt-2 py-3 shadow-sm" *ngFor="let item of orderObj.products;let i=index">
+                <div class="card-body row">
+                    <div class="col-md-7 ms-2">
+                        <h6 class="card-text">{{item.discription}}</h6>
+                        <p class="card-text text-muted">{{item.brand}}</p>
+                        <p class="card-text text-muted">{{item.type}}</p>
+
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <p class="card-text">₹ {{item.discountPrice}} &nbsp;<span class="text-decoration-line-through">MRP &nbsp; ₹ {{item.actualPrice}} </span></p>
+                        <p ><i class="bi bi-dash-circle text-primary cursor fs-5" (click)="quantitychange('negative',i)"></i>&nbsp; {{item.quantity}} &nbsp; <i class="bi bi-plus-circle text-primary cursor fs-5" (click)="quantitychange('positive',i)"></i></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3 ms-4 py-4 rounded-4 border shadow">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <strong>Payment Details</strong>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-5 ms-2">
+                            <p class="card-text fs-6">MRP Totals</p>
+                            <p class="card-text fs-6">Discounts</p>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <p class="card-text fs-6 ">₹ {{orderObj.totalAmount}} /-*</p>
+                            <p class="card-text fs-6 ">₹ {{orderObj.totalDiscount}} /-*</p>
+                        </div>
+                        <hr class="mt-2">
+                        <div class="row mt-1">
+                            <div class="col-md-7">
+                            <p class="text-muted card-text"> Amount to pay</p>
+                            <p class="card-text " style="margin-bottom: -15px; margin-top: -15px;">₹ {{orderObj.finalAmount}} /-*</p>
+                            </div>
+                            <div class="col-md-5 text-center bg-primary pt-2 rounded-4 text-light cursor"  (click)="checkout()">
+                              Checkout
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

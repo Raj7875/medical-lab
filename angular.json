@@ -101,6 +101,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "medical-lab:build:production",
+            "firebaseProject": "medlab-test001",
+            "firebaseHostingSite": "medlab-test001"
+          }
         }
       }
     }
